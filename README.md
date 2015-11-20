@@ -1,6 +1,8 @@
 Ansible role: HoneySAP
 ======================
 
+[![Build Status](https://travis-ci.org/martingalloar/ansible-honeysap.svg?branch=master)](https://travis-ci.org/martingalloar/ansible-honeysap)
+
 An Ansible role that installs [HoneySAP](https://github.com/CoreSecurity/HoneySAP) on Debian/Ubuntu.
 
 Requirements
