@@ -1,0 +1,35 @@
+---
+
+# Required system packages 
+honeysap_system_packages:
+  - git
+  - python-pip
+  - python-dev
+  - build-essential
+
+# Required python packages
+honeysap_python_packages:
+  - "git+https://github.com/rep/hpfeeds.git#egg=hpfeeds"
+
+# HoneySAP repository
+honeysap_repository: "https://github.com/CoreSecurity/HoneySAP"
+
+# Path where the HoneySAP code is available. This should be paired with the folder
+# syncing configuration if using it with Vagrant
+honeysap_path: /opt/honeysap
+
+# Path where the HoneySAP binary is installed
+honeysap_daemon: /usr/local/bin/honeysap
+
+# Name of the service
+honeysap_service: honeysap
+
+# Username for running the service
+honeysap_username: honeysap
+
+# Path to the file to write the configuration file
+honeysap_config_file: /etc/honeysap.yml
+
+# Path to the file to write the standard and error output
+honeysap_stdout_logfile: /opt/honeysap/honeysap_stdout.log
+honeysap_stderr_logfile: /opt/honeysap/honeysap_stderr.log

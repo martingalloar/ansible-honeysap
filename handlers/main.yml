@@ -1,0 +1,11 @@
+---
+
+- name: Start HoneySAP
+  service:
+    name: "{{ honeysap_service }}"
+    state: started
+
+- name: Restart HoneySAP
+  service:
+    name: "{{ honeysap_service }}"
+    state: restarted

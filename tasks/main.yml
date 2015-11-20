@@ -1,0 +1,51 @@
+---
+
+- name: Update apt package cache
+  apt:
+    update_cache: yes
+
+- name: Install required system packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: latest
+  with_items: honeysap_system_packages
+
+- name: Install required python libraries
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items: honeysap_python_packages
+
+- name: Create user for running HoneySAP
+  user:
+    name: "{{ honeysap_username }}"
+    home: "/home/{{ honeysap_username }}"
+
+- name: Install HoneySAP 
+  pip:
+    name: "{{ honeysap_repository }}"
+
+- name: Configuring HoneySAP using a source file
+  file:
+    src: "{{ honeysap_source_config }}"
+    dest: "{{ honeysap_config_file }}"
+    owner: "{{ honeysap_username }}"
+    mode: 755
+  when: honeysap_source_config is defined
+
+- name: Configuring HoneySAP using a template
+  template:
+    src: "honeysap.yml"
+    dest: "{{ honeysap_config_file }}"
+    owner: "{{ honeysap_username }}"
+    mode: 755
+  when: honeysap_source_config is not defined
+
+- name: Copy init.d script for HoneySAP
+  template:
+    src: honeysap.sh
+    dest: "/etc/init.d/{{ honeysap_service }}"
+    owner: root
+    mode: 755
+  notify: Start HoneySAP

@@ -1,0 +1,22 @@
+# HoneSAP configuration
+# =====================
+
+{% if honeysap_configuration is defined %}
+{{ honeysap_configuration }}
+{% endif %}
+
+# Services configuration
+# ----------------------
+
+services:
+    {% if honeysap_services is defined %}
+    {{ honeysap_services }}
+    {% endif %}
+
+# Feeds configuration
+# -------------------
+
+feeds:
+    {% if honeysap_feeds is defined %}
+    {{ honeysap_feeds }}
+    {% endif %}

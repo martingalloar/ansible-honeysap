@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: martingalloar
+  description: An ansible role for running HoneySAP
+  license: GPLv2
+  min_ansible_version: 1.4
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  - name: Debian
+    versions:
+    - jessie
+  categories:
+    - monitoring
+
+dependencies: []
