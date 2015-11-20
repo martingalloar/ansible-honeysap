@@ -12,7 +12,7 @@ honeysap_python_packages:
   - "git+https://github.com/rep/hpfeeds.git#egg=hpfeeds"
 
 # HoneySAP repository
-honeysap_repository: "https://github.com/CoreSecurity/HoneySAP"
+honeysap_repository: "git+https://github.com/CoreSecurity/HoneySAP.git"
 
 # Path where the HoneySAP code is available. This should be paired with the folder
 # syncing configuration if using it with Vagrant
