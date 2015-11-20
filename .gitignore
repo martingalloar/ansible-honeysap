@@ -1,0 +1,11 @@
+# Ides
+.idea
+.project
+.pydevproject
+
+# Vagrant files
+.vagrant
+
+# Ansible files
+ansible.cfg
+
