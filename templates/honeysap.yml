@@ -2,21 +2,25 @@
 # =====================
 
 {% if honeysap_configuration is defined %}
-{{ honeysap_configuration }}
+{{ honeysap_configuration | to_yaml }}
 {% endif %}
 
 # Services configuration
 # ----------------------
 
 services:
-    {% if honeysap_services is defined %}
-    {{ honeysap_services }}
-    {% endif %}
+{% if honeysap_services is defined %}
+{{ honeysap_services | to_yaml }}
+{% else %}
+  []
+{% endif %}
 
 # Feeds configuration
 # -------------------
 
 feeds:
-    {% if honeysap_feeds is defined %}
-    {{ honeysap_feeds }}
-    {% endif %}
+{% if honeysap_feeds is defined %}
+{{ honeysap_feeds | to_yaml }}
+{% else %}
+  []
+{% endif %}

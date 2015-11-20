@@ -31,21 +31,28 @@
     src: "{{ honeysap_source_config }}"
     dest: "{{ honeysap_config_file }}"
     owner: "{{ honeysap_username }}"
-    mode: 755
+    mode: 0640
   when: honeysap_source_config is defined
+  notify: Restart HoneySAP
 
 - name: Configuring HoneySAP using a template
   template:
     src: "honeysap.yml"
     dest: "{{ honeysap_config_file }}"
     owner: "{{ honeysap_username }}"
-    mode: 755
+    mode: 0640
   when: honeysap_source_config is not defined
+  notify: Restart HoneySAP
 
 - name: Copy init.d script for HoneySAP
   template:
     src: honeysap.sh
     dest: "/etc/init.d/{{ honeysap_service }}"
     owner: root
-    mode: 755
+    mode: 0755
   notify: Start HoneySAP
+
+- name: Register the HoneySAP service
+  service:
+    name: "{{ honeysap_service }}"
+    enabled: yes
