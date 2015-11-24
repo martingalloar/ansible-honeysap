@@ -22,9 +22,16 @@
     name: "{{ honeysap_username }}"
     home: "/home/{{ honeysap_username }}"
 
+- name: Checkout HoneySAP source
+  git:
+    repo: "{{ honeysap_repository }}"
+    dest: "{{ honeysap_dir }}"
+  register: checkout
+
 - name: Install HoneySAP 
   pip:
-    name: "{{ honeysap_repository }}"
+    name: "file://{{ honeysap_dir }}"
+  when: checkout.changed
 
 - name: Configuring HoneySAP using a source file
   file:
