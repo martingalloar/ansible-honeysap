@@ -1,7 +1,7 @@
 Ansible role: HoneySAP
 ======================
 
-[![Build Status](https://travis-ci.org/martingalloar/ansible-honeysap.svg?branch=master)](https://travis-ci.org/martingalloar/ansible-honeysap)
+[![Build Status](https://travis-ci.org/martingalloar/ansible-honeysap.svg?branch=master)](https://travis-ci.org/martingalloar/ansible-honeysap) [![Ansible Galaxy](http://img.shields.io/badge/galaxy-martingalloar.honeysap-660198.svg)](https://galaxy.ansible.com/detail#/role/6181)
 
 An Ansible role that installs [HoneySAP](https://github.com/CoreSecurity/HoneySAP) on Debian/Ubuntu.
 
